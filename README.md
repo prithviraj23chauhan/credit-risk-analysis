@@ -1,141 +1,131 @@
-📊 Credit Risk Analysis & Scoring System (FinTech – BharatEarns)
+# 📊 Credit Risk Analysis & Scoring System (FinTech – BharatEarns)
 
-A complete end-to-end credit risk prediction project built using
-Machine Learning, Deep Learning, and Model Explainability.
-Designed for BharatEarns (FinTech) as part of an internship project & academic submission.
+A complete end-to-end **Credit Risk Prediction System** developed for **BharatEarns (FinTech)** as part of an internship & academic project.
 
-This project predicts whether a loan applicant is likely to default using multiple models, ensembling techniques, and an interactive Streamlit dashboard.
+This system predicts whether a loan applicant is likely to **default**, using machine learning, deep learning, and ensembling techniques. It includes a fully interactive **Streamlit dashboard**, model comparison utilities, and SHAP-based explainability.
 
-🚀 Project Highlights
-✔ 1. Multiple Models Implemented
+---
 
-Machine Learning Models
+## 🚀 Key Features
 
-Logistic Regression
+### ✔ Multiple Machine Learning Models
+- Logistic Regression  
+- Support Vector Machine (SVM)  
+- Random Forest  
+- LightGBM  
 
-Support Vector Machine (SVM)
+### ✔ Deep Learning Model
+- **DeepFM** (feature-aware neural network)
 
-Random Forest
+### ✔ Ensemble Methods
+- Soft Voting Ensemble  
+- Stacking Ensemble (best-performing model)
 
-LightGBM (LGBMClassifier)
+---
 
-Deep Learning Model
+## 🎯 Three Evaluation Stages
 
-DeepFM (feature-aware neural network)
+Each model is evaluated in three phases:
 
-Ensembling Techniques
+| Stage | Description |
+|-------|-------------|
+| **Base** | Original imbalanced dataset |
+| **Balanced** | Class balancing using weights / oversampling |
+| **Tuned** | Full hyperparameter optimization |
 
-Soft Voting Ensemble
+All metrics logged:
+- Accuracy  
+- Precision  
+- Recall  
+- F1-score  
+- ROC–AUC  
 
-Stacking Ensemble (best performing)
+Stored inside `results/` folder.
 
-✔ 2. Three Stages Evaluated
+---
 
-Each model is trained and evaluated at:
+## 🛠 End-to-End Pipeline
 
-Stage	Description
-Base	Original imbalanced data
-Balanced	Class rebalancing (oversampling / weights)
-Tuned	Hyperparameter optimization
+### ✔ Model Bundles (`.pkl`)
+Each model is saved as a bundle with:
+- `model`  
+- `feature_cols`  
+- `feature_means`  
 
-All metrics are logged as:
+Ensures consistent inference even if user uploads incomplete CSVs.
 
-Accuracy
+### ✔ Config-Driven Architecture
+The system loads models dynamically through:
 
-Precision
-
-Recall
-
-F1 Score
-
-ROC–AUC
-
-Stored in results/*.csv.
-
-✔ 3. Production-Grade ML Pipeline
-
-All models saved as bundles (.pkl) with:
-
-model
-
-feature list
-
-feature means
-
-Ensures consistent predictions at inference time.
-
-Config-driven design using:
-
+```
 config/models.yaml
-src/pipeline.py
 src/model_registry.py
+src/pipeline.py
+```
 
-✔ 4. Interactive Streamlit Dashboard
+---
 
-The app supports:
+## 🖥 Streamlit Dashboard
 
-🔹 Single Customer Prediction
+### 🔹 **1. Single Customer Prediction**
+- Enter key customer fields  
+- Remaining features auto-filled from training means  
+- Outputs:
+  - Default probability
+  - Predicted label (High/Low Risk)
 
-Input limited key fields
+---
 
-Remaining features autofilled using feature means
+### 🔹 **2. Batch Prediction**
+Upload a CSV with same features as training data.
 
-Outputs:
+The system displays:
+- Predictions for each customer  
+- Total applicants  
+- High-risk count  
+- Mean default probability  
+- Downloadable CSV with predictions  
 
-Default probability
-
-Risk label (High/Low)
-
-🔹 Batch Prediction
-
-Upload a CSV with the same feature columns as training (feature_cols).
-
-App provides:
-
-Risk prediction for all rows
-
-Count of high-risk customers
-
-Average probability
-
-Downloadable scored CSV
-
-Sample file included:
-
+A ready-to-use example file is included:
+```
 data/sample_input.csv
+```
 
-🔹 Model Comparison Dashboard
+---
 
-Load evaluation metrics across Base / Balanced / Tuned
+### 🔹 **3. Model Comparison Dashboard**
+Compare all models across **Base**, **Balanced**, and **Tuned** stages.
 
-Plot metrics: Accuracy / Precision / Recall / F1 / AUC
+- Plot metrics: Accuracy / Precision / Recall / F1 / AUC  
+- Select specific model to view progression  
+- Helps interpret performance improvements
 
-Compare models visually
+---
 
-Select model in sidebar
+### 🔹 **4. Explainability (SHAP)**
+For **tree-based models** (RF & LGBM):
 
-🔹 Explainability (SHAP)
+- Global SHAP summary plot  
+- Shows most influential features  
+- Helps justify decisions for risk assessment  
 
-For tree-based models (Random Forest / LightGBM):
+---
 
-Global SHAP summary plot showing feature importance
+## 📂 Project Structure
 
-Helps identify top drivers of credit default risk
-
-🗂️ Project Structure
+```
 credit-risk-analysis/
 │
 ├── app/
-│   └── streamlit_app.py
+│   └── streamlit_app.py           # Main dashboard
 │
 ├── src/
-│   ├── pipeline.py
-│   ├── train_models.py
-│   ├── model_registry.py
-│   └── config.py
+│   ├── pipeline.py                # Prediction pipeline
+│   ├── train_models.py            # Training scripts
+│   ├── model_registry.py          # Model loader
+│   └── config.py                  # Config helpers
 │
-├── models/
-│   └── credit_risk_*.pkl
+├── models/                        # Saved model bundles (.pkl)
 │
 ├── results/
 │   ├── results_base.csv
@@ -143,67 +133,92 @@ credit-risk-analysis/
 │   └── results_tuned.csv
 │
 ├── data/
-│   └── sample_input.csv
+│   └── sample_input.csv           # Example batch input
 │
 ├── config/
-│   └── models.yaml
+│   └── models.yaml                # Model settings & paths
 │
 ├── notebooks/
-│   └── Credit_Risk_Analysis.ipynb
+│   └── Credit_Risk_Analysis.ipynb # Feature engineering + EDA
 │
 ├── requirements.txt
 └── README.md
+```
 
-🛠️ Installation & Setup
-1. Create and activate virtual environment
+---
+
+## ⚙️ Installation & Running
+
+### 1️⃣ Create Virtual Environment
+```bash
 python -m venv venv
-venv\Scripts\activate     (Windows)
+venv\Scripts\activate    # Windows
+```
 
-2. Install dependencies
+### 2️⃣ Install Dependencies
+```bash
 pip install -r requirements.txt
+```
 
-3. Run the Streamlit app
+### 3️⃣ Launch Streamlit App
+```bash
 cd app
 streamlit run streamlit_app.py
+```
 
-📈 Results Summary
+---
 
-Best models (Tuned Stage):
+## 📈 Results Summary
 
-Stacking Ensemble
+**Best Performing Models (Tuned Stage):**
 
-Random Forest Tuned
+| Model | Highlights |
+|-------|------------|
+| **Stacking Ensemble** | Best tradeoff of Precision/Recall/AUC |
+| **LightGBM Tuned** | Highest AUC, strong recall |
+| **Random Forest Tuned** | Excellent balanced performance |
 
-LightGBM Tuned
+These models are recommended for production deployment.
 
-Showed the highest Recall and ROC–AUC, making them most effective for identifying high-risk defaulting customers.
+---
 
-🔍 Explainability (SHAP)
+## 🔍 Key Insights from SHAP
 
-SHAP Summary Plot highlights:
+Top global risk indicators include:
+- `EXT_SOURCE_2`  
+- `DAYS_BIRTH`  
+- `AMT_CREDIT`  
+- Social Circle Indicators  
+- Regional & Housing Type features  
+- Employment and Document verification flags  
 
-EXT_SOURCE values
+---
 
-DAYS_BIRTH
+## 📄 Use Cases
 
-AMT_CREDIT
+This project fits into real FinTech workflows:
+- Credit scoring for loan approval  
+- Risk-based pricing  
+- Fraud detection  
+- Customer segmentation  
+- Underwriting automation  
 
-Social Circle counts
+---
 
-Various one-hot encoded financial indicators
+## 👤 Author
 
-These features significantly influence default outcomes.
+**Prithviraj Chauhan**  
+FinTech / ML Engineer  
 
-📄 Project Use Cases
+GitHub: https://github.com/prithviraj23chauhan  
+Project Repo: *Credit Risk Analysis & Scoring System*
 
-This system can be used by fintech platforms for:
+---
 
-Loan approval decisions
+## ⭐ Future Enhancements
 
-Fraud risk detection
-
-Customer segmentation
-
-Underwriting automation
-
-Monitoring portfolio risk
+- Add per-customer SHAP local explanation  
+- Support DeepFM inference directly in the dashboard  
+- Probability calibration (Platt / Isotonic)  
+- FastAPI deployment  
+- Integrate with a frontend credit application form  
