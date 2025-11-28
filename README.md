@@ -113,15 +113,8 @@ For **tree-based models** (RF & LGBM):
 
 ## 📂 Project Structure
 
-<<<<<<< HEAD
 ```
 credit-risk-analysis/
-=======
-Helps identify top drivers of credit default risk
-
-🗂️ Project Structure
-"""credit-risk-analysis/
->>>>>>> a11b64fa752eb1b331930e63647b0c9fbe96b354
 │
 ├── app/
 │   └── streamlit_app.py           # Main dashboard
@@ -150,11 +143,7 @@ Helps identify top drivers of credit default risk
 │
 ├── requirements.txt
 └── README.md
-<<<<<<< HEAD
 ```
-=======
-"""
->>>>>>> a11b64fa752eb1b331930e63647b0c9fbe96b354
 
 ---
 
@@ -228,18 +217,8 @@ Project Repo: *Credit Risk Analysis & Scoring System*
 
 ## ⭐ Future Enhancements
 
-<<<<<<< HEAD
 - Add per-customer SHAP local explanation  
 - Support DeepFM inference directly in the dashboard  
 - Probability calibration (Platt / Isotonic)  
 - FastAPI deployment  
 - Integrate with a frontend credit application form  
-=======
-Fraud risk detection
-
-Customer segmentation
-
-Underwriting automation
-
-Monitoring portfolio risk
->>>>>>> a11b64fa752eb1b331930e63647b0c9fbe96b354
