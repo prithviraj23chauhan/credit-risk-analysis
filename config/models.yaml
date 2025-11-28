@@ -1,0 +1,22 @@
+# config/models.yaml
+
+default_model: "stacking_tuned"   # can be changed without touching code
+decision_threshold: 0.5
+
+models:
+  stacking_tuned:
+    path: "models/credit_risk_stack_tuned.pkl"
+    type: "sklearn"
+  voting_tuned:
+    path: "models/credit_risk_voting_tuned.pkl"
+    type: "sklearn"
+  rf_tuned:
+    path: "models/credit_risk_rf_tuned.pkl"
+    type: "sklearn"
+  lgbm_tuned:
+    path: "models/credit_risk_lgbm_tuned.pkl"
+    type: "sklearn"
+  # deepfm:
+  #   path: "models/credit_risk_deepfm_tuned.pkl"
+  #   type: "deepfm"
+    # later if you want different handling

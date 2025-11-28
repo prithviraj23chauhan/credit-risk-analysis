@@ -1,0 +1,30 @@
+# Core ML + Data
+numpy
+pandas
+scikit-learn
+
+# Gradient Boosting (LightGBM)
+lightgbm
+
+# Deep Learning (DeepFM)
+torch
+deepctr-torch
+
+# Explainability
+shap
+
+# Web Apps / UI
+gradio
+streamlit
+
+# Utility
+joblib
+pyyaml
+
+# Optional but recommended
+matplotlib
+seaborn
+tqdm
+
+# For avoiding warnings in some environments
+typing_extensions
