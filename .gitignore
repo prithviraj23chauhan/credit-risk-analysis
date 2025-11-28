@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Environments
+venv/
+.env
+
+# OS garbage
+.DS_Store
+Thumbs.db
+
+# Model files (optional)
+models/*.pkl
+
+# Data (optional)
+data/*.csv
