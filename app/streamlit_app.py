@@ -810,8 +810,6 @@ such as Random Forest and LightGBM.
                 shap_values = explainer.shap_values(X_sample)
 
                 st.markdown("### Global Feature Importance (SHAP Summary Plot)")
-                st.markdown("### Global Feature Importance (SHAP Summary Plot)")
-
                 # Let SHAP draw on its own figure
                 shap.summary_plot(
                     shap_values[1] if isinstance(shap_values, list) else shap_values,
