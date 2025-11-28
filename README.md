@@ -205,20 +205,3 @@ This project fits into real FinTech workflows:
 
 ---
 
-## 👤 Author
-
-**Prithviraj Chauhan**  
-FinTech / ML Engineer  
-
-GitHub: https://github.com/prithviraj23chauhan  
-Project Repo: *Credit Risk Analysis & Scoring System*
-
----
-
-## ⭐ Future Enhancements
-
-- Add per-customer SHAP local explanation  
-- Support DeepFM inference directly in the dashboard  
-- Probability calibration (Platt / Isotonic)  
-- FastAPI deployment  
-- Integrate with a frontend credit application form  
