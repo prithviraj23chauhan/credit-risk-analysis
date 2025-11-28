@@ -123,7 +123,7 @@ Global SHAP summary plot showing feature importance
 Helps identify top drivers of credit default risk
 
 🗂️ Project Structure
-credit-risk-analysis/
+"""credit-risk-analysis/
 │
 ├── app/
 │   └── streamlit_app.py
@@ -153,6 +153,7 @@ credit-risk-analysis/
 │
 ├── requirements.txt
 └── README.md
+"""
 
 🛠️ Installation & Setup
 1. Create and activate virtual environment
